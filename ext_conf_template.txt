@@ -1,0 +1,4 @@
+# cat=basic; type=string; label=phpPath: Path to the PHP executable file (e.g. /usr/bin/php)
+phpPath=php
+# cat=basic; type=string; label=frontendBasePath: Frontend website base path: Base path of the website frontend (e.g. if you call http://mydomain.com/cms/index.php in the browser the base path is "/cms/")
+frontendBasePath=/
