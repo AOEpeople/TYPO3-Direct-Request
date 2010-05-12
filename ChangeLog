@@ -1,3 +1,7 @@
+2010-05-12  Oliver Hader  <oliver@typo3.org>
+
+	* Fixed bug: Wrong definitions in ext_localconf.php file and ext_tables.php is superfluous
+
 2010-05-05  Oliver Hader  <oliver@typo3.org>
 
 	* Raised version number to 0.0.1
