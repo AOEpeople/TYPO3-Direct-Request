@@ -61,10 +61,13 @@ if (is_array($additionalHeaders)) {
 
 // put parsed query parts into $_GET array
 $urlParts = parse_url($_SERVER['argv'][2]);
-// Populating $_GET
-parse_str($urlParts['query'], $_GET);
-// Populating $_REQUEST
-parse_str($urlParts['query'], $_REQUEST);
+
+// Populating $_GET and $_REQUEST is query part is set:
+if (isset($urlParts['query'])) {
+	parse_str($urlParts['query'], $_GET);
+	parse_str($urlParts['query'], $_REQUEST);
+}
+
 // Populating $_POST
 $_POST = array();
 // Populating $_COOKIE

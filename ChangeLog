@@ -1,3 +1,7 @@
+2010-05-28  Oliver Hader  <oliver@typo3.org>
+
+	* Fixed bug: Undefined index if URL does not have a query part
+
 2010-05-12  Oliver Hader  <oliver@typo3.org>
 
 	* Fixed bug: Wrong definitions in ext_localconf.php file and ext_tables.php is superfluous
