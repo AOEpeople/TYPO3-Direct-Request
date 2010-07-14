@@ -45,19 +45,20 @@ $typo3Root = preg_replace('#typo3conf/ext/directrequest/cli/request.php$#', '', 
 /**
  * Second paramater is a base64 encoded serialzed array of header data
  */
-$additionalHeaders = unserialize(base64_decode($_SERVER['argv'][3]));
-if (is_array($additionalHeaders)) {
-	foreach ($additionalHeaders as $additionalHeader) {
-		if (strpos($additionalHeader, ':') !== false) {
-			list($key, $value) = explode(':', $additionalHeader, 2);
-			$key = str_replace('-', '_', strtoupper(trim($key)));
-			if ($key != 'HOST') {
-				$_SERVER['HTTP_' . $key] = trim($value);
+if (isset($_SERVER['argv'][3])) {
+	$additionalHeaders = unserialize(base64_decode($_SERVER['argv'][3]));
+	if (is_array($additionalHeaders)) {
+		foreach ($additionalHeaders as $additionalHeader) {
+			if (strpos($additionalHeader, ':') !== false) {
+				list($key, $value) = explode(':', $additionalHeader, 2);
+				$key = str_replace('-', '_', strtoupper(trim($key)));
+				if ($key != 'HOST') {
+					$_SERVER['HTTP_' . $key] = trim($value);
+				}
 			}
 		}
 	}
 }
-
 
 // put parsed query parts into $_GET array
 $urlParts = parse_url($_SERVER['argv'][2]);

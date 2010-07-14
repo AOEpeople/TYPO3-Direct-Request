@@ -1,6 +1,7 @@
 2010-07-14  Oliver Hader  <oliver@typo3.org>
 
 	* Fixed bug: Headers are not used on executing a direct request
+	* Fixed bug: PHP notice is shown if no HTTP headers are given
 
 2010-05-28  Oliver Hader  <oliver@typo3.org>
 
