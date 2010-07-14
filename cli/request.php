@@ -52,7 +52,7 @@ if (is_array($additionalHeaders)) {
 			list($key, $value) = explode(':', $additionalHeader, 2);
 			$key = str_replace('-', '_', strtoupper(trim($key)));
 			if ($key != 'HOST') {
-				$_SERVER['HTTP_'.$key] = $value;
+				$_SERVER['HTTP_' . $key] = trim($value);
 			}
 		}
 	}

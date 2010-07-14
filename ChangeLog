@@ -1,3 +1,7 @@
+2010-07-14  Oliver Hader  <oliver@typo3.org>
+
+	* Fixed bug: Headers are not used on executing a direct request
+
 2010-05-28  Oliver Hader  <oliver@typo3.org>
 
 	* Fixed bug: Undefined index if URL does not have a query part

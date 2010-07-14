@@ -46,7 +46,7 @@ class tx_directrequest_manager implements t3lib_Singleton {
 	 * @return array The result with contents, response and request headers
 	 */
 	public function execute($url, array $headers = NULL) {
-		$command = $this->getShellCommand($url);
+		$command = $this->getShellCommand($url, $headers);
 		$content = $this->executeShellCommand($command);
 
 		$result = array(
