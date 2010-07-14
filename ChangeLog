@@ -2,6 +2,7 @@
 
 	* Fixed bug: Headers are not used on executing a direct request
 	* Fixed bug: PHP notice is shown if no HTTP headers are given
+	* Raised version number to 0.0.3
 
 2010-05-28  Oliver Hader  <oliver@typo3.org>
 
