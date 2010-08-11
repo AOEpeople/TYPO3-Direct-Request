@@ -62,6 +62,9 @@ if (isset($_SERVER['argv'][3])) {
 
 // put parsed query parts into $_GET array
 $urlParts = parse_url($_SERVER['argv'][2]);
+if(FALSE === $urlParts){
+	exit('could not parse url: '.$_SERVER['argv'][2]);
+}
 
 // Populating $_GET and $_REQUEST is query part is set:
 if (isset($urlParts['query'])) {
@@ -96,7 +99,6 @@ if (isset($urlParts['port'])) {
 if ($urlParts['scheme'] === 'https') {
 	$_SERVER['HTTPS'] = 'on';
 }
-
 chdir($typo3Root);
 include($typo3Root . '/index.php');
 
