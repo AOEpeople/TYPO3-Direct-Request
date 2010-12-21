@@ -24,6 +24,7 @@
 
 /**
  * Class that manages direct requests.
+ * @package directrequest
  */
 class tx_directrequest_manager implements t3lib_Singleton {
 	/**
