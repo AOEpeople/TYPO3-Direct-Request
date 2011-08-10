@@ -49,9 +49,18 @@ class tx_directrequest_manager implements t3lib_Singleton {
 	public function execute($url, array $headers = NULL) {
 		$command = $this->getShellCommand($url, $headers);
 		$content = $this->executeShellCommand($command);
+		$error = '';
+
+		// check, if an error occurs
+		$matches = array();
+		if(preg_match('/^<error>(.*?)<\/error>/i', $content, $matches)) {
+			$content = '';
+			$error = $matches[1];
+		}
 
 		$result = array(
 			'content' => $content,
+			'error' => $error,
 			'request' => '',
 			'response' => '',
 		);

@@ -1,4 +1,16 @@
 <?php
+/**
+ * handles the shutdown:
+ * show error-message, if a fatal error occurs
+ */
+function tx_directrequest_handleShutdown() {
+	$error = error_get_last();
+	if($error['type'] === E_ERROR) {
+		echo printf('<error>%s in %s on line %d</error>', $error['message'], $error['file'], $error['line']);
+	}
+}
+
+register_shutdown_function('tx_directrequest_handleShutdown');
 
 
 /**
