@@ -4,9 +4,10 @@
  * show error-message, if a fatal error occurs
  */
 function tx_directrequest_handleShutdown() {
-	$error = error_get_last();
-	if($error['type'] === E_ERROR) {
-		echo printf('<error>%s in %s on line %d</error>', $error['message'], $error['file'], $error['line']);
+	$errorCodes = array(E_ERROR,E_PARSE,E_CORE_ERROR,E_COMPILE_ERROR,E_USER_ERROR,E_RECOVERABLE_ERROR);
+	$errorInfo = error_get_last();
+	if(is_array($errorInfo) && in_array($errorInfo['type'],$errorCodes)) {
+		echo printf('<error>%d: %s in %s on line %d</error>', $errorInfo['type'], $errorInfo['message'], $errorInfo['file'], $errorInfo['line']);
 	}
 }
 
@@ -93,6 +94,7 @@ $_COOKIE = array();
 $typo3SitePath = $_SERVER['argv'][1];
 
 // faking the environment
+$_SERVER = array();
 $_SERVER['ORIG_SCRIPT_FILENAME'] = '';
 $_SERVER['DOCUMENT_ROOT'] = preg_replace('#' . preg_quote($typo3SitePath, '#') . '$#', '', $typo3Root);
 $_SERVER['HTTP_USER_AGENT'] = 'CLI Mode';
