@@ -58,6 +58,7 @@ $typo3Root = preg_replace('#typo3conf/ext/directrequest/cli/request.php$#', '', 
 /**
  * Second paramater is a base64 encoded serialzed array of header data
  */
+$headerData = array();
 if (isset($_SERVER['argv'][3])) {
 	$additionalHeaders = unserialize(base64_decode($_SERVER['argv'][3]));
 	if (is_array($additionalHeaders)) {
@@ -66,7 +67,7 @@ if (isset($_SERVER['argv'][3])) {
 				list($key, $value) = explode(':', $additionalHeader, 2);
 				$key = str_replace('-', '_', strtoupper(trim($key)));
 				if ($key != 'HOST') {
-					$_SERVER['HTTP_' . $key] = trim($value);
+					$headerData['HTTP_' . $key] = trim($value);
 				}
 			}
 		}
@@ -104,6 +105,7 @@ $_SERVER['SCRIPT_FILENAME'] = $_SERVER['PATH_TRANSLATED'] = $typo3Root . 'index.
 $_SERVER['QUERY_STRING'] = (isset($urlParts['query']) ? $urlParts['query'] : '');
 $_SERVER['REQUEST_URI'] = $urlParts['path'] . (isset($urlParts['query']) ? '?' . $urlParts['query'] : '');
 $_SERVER['REQUEST_METHOD'] = 'GET'; // set request-method, otherwise extbase will throw an exception
+$_SERVER += $headerData;
 
 // Define a port if used in the URL: 
 if (isset($urlParts['port'])) {
