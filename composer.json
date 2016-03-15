@@ -1,5 +1,5 @@
 {
-    "name": "typo3-ter/directrequest",
+    "name": "aoe/directrequest",
     "description": "Extension the fake an HTTP request and perform a direct request to the frontend triggered by the backend",
     "type": "typo3-cms-extension",
     "homepage": "https://forge.typo3.org/projects/extension-directrequest",
