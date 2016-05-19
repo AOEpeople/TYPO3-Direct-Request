@@ -2,7 +2,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2010 AOE media (dev@aoemedia.de)
+ *  (c) 2010 AOE (dev@aoe.com)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,11 +22,15 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * Class that manages direct requests.
  * @package directrequest
  */
-class tx_directrequest_manager implements t3lib_Singleton {
+class tx_directrequest_manager implements SingletonInterface {
 	/**
 	 * @var array
 	 */
@@ -78,7 +82,7 @@ class tx_directrequest_manager implements t3lib_Singleton {
 	protected function getShellCommand($url, array $headers = NULL) {
 		$commandParts = array(
 			escapeshellcmd($this->getPhpPath()),
-			escapeshellarg(t3lib_extMgm::extPath('directrequest') . 'cli/request.php'),
+			escapeshellarg(ExtensionManagementUtility::extPath('directrequest') . 'cli/request.php'),
 			escapeshellarg($this->getFrontendBasePath()),
 			escapeshellarg($url),
 			escapeshellarg(base64_encode(serialize($headers))),
@@ -130,7 +134,7 @@ class tx_directrequest_manager implements t3lib_Singleton {
 			$frontendBasePath = $this->extensionSettings['frontendBasePath'];
 		// If not in CLI mode the base path can be determined from $_SERVER environment:
 		} elseif (!defined('TYPO3_cliMode') || !TYPO3_cliMode) {
-			t3lib_div::getIndpEnv('TYPO3_SITE_PATH');
+			GeneralUtility::getIndpEnv('TYPO3_SITE_PATH');
 		}
 
 		// Base path must be '/<pathSegements>/':
