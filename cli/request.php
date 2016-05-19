@@ -117,5 +117,3 @@ if ($urlParts['scheme'] === 'https') {
 }
 chdir($typo3Root);
 include($typo3Root . '/index.php');
-
-?>
