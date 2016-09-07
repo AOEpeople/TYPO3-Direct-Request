@@ -34,5 +34,10 @@
         "TYPO3",
         "extbase",
         "directrequest"
-    ]
+    ],
+    "autoload": {
+        "classmap": [
+            "classes/"
+        ]
+    }
 }
