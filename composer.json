@@ -1,13 +1,13 @@
 {
     "name": "aoe/directrequest",
-    "description": "Extension the fake an HTTP request and perform a direct request to the frontend triggered by the backend",
+    "description": "Extension to fake an HTTP request and perform a direct request to the frontend triggered by the backend",
     "type": "typo3-cms-extension",
-    "homepage": "https://forge.typo3.org/projects/extension-directrequest",
+    "homepage": "https://github.com/AOEpeople/TYPO3-Direct-Request",
     "license": "GPL-3.0",
     "support": {
         "email": "dev@aoe.com",
-        "issues": "https://forge.typo3.org/projects/extension-directrequest/issues",
-        "source": "https://forge.typo3.org/projects/extension-directrequest"
+        "issues": "https://github.com/AOEpeople/TYPO3-Direct-Request/issues",
+        "source": "https://github.com/AOEpeople/TYPO3-Direct-Request"
     },
     "authors": [
         {
