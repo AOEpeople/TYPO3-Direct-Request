@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Direct Request',
-	'description' => 'Extension the fake an HTTP request and perform a direct request to the frontend triggered by the backend',
+	'description' => 'Extension to fake an HTTP request and perform a direct request to the frontend triggered by the backend',
 	'category' => 'misc',
 	'author' => 'AOE',
 	'author_email' => 'dev@aoe.com',
@@ -31,7 +31,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'version' => '0.2.0',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '6.2.0-7.6.99',
+			'typo3' => '7.6.0-7.6.99',
 		),
 		'conflicts' => array(
 		),

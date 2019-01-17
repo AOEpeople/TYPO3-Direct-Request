@@ -5,39 +5,55 @@
     "homepage": "https://github.com/AOEpeople/TYPO3-Direct-Request",
     "license": "GPL-3.0",
     "support": {
-        "email": "dev@aoe.com",
-        "issues": "https://github.com/AOEpeople/TYPO3-Direct-Request/issues",
-        "source": "https://github.com/AOEpeople/TYPO3-Direct-Request"
-    },
-    "authors": [
-        {
-            "name": "AOE GmbH",
-            "email": "dev@aoe.com",
-            "homepage": "http://www.aoe.com"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "*"
-    },
-    "require-dev": {
-        "typo3/cms": "6.2.*",
-        "phpunit/phpunit": "4.8.*",
-        "phpunit/phpcov": "2.0.*",
-        "squizlabs/php_codesniffer": "2.3.*",
-        "sebastian/phpcpd": "2.0.*",
-        "phpmd/phpmd": "2.2.*"
-    },
-    "replace": {
-        "directrequest": "*"
-    },
-    "keywords": [
-        "TYPO3",
-        "extbase",
-        "directrequest"
-    ],
-    "autoload": {
-        "classmap": [
-            "classes/"
-        ]
-    }
-}
+         "email": "dev@aoe.com",
+         "issues": "https://github.com/AOEpeople/TYPO3-Direct-Request/issues",
+         "source": "https://github.com/AOEpeople/TYPO3-Direct-Request"
+     },
+     "authors": [
+         {
+             "name": "AOE GmbH",
+             "email": "dev@aoe.com",
+             "homepage": "http://www.aoe.com"
+         }
+     ],
+     "require": {
+         "php": "^7.0",
+         "typo3/cms-core": ">=7.6.0,<=7.6.99"
+     },
+     "require-dev": {
+         "typo3/cms": "^7.6",
+         "nimut/testing-framework": "2.0.*",
+         "phpunit/phpcov": "3.1.*",
+         "squizlabs/php_codesniffer": "3.3.*",
+         "sebastian/phpcpd": "3.0.*",
+         "phpmd/phpmd": "2.6.*"
+     },
+     "replace": {
+         "directrequest": "*"
+     },
+     "autoload": {
+         "classmap": [
+             "classes/"
+         ]
+     },
+     "scripts": {
+         "post-autoload-dump": [
+             "mkdir -p .Build/Web/typo3conf/ext/",
+             "[ -L .Build/Web/typo3conf/ext/directrequest ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/directrequest"
+         ]
+     },
+     "extra": {
+         "branch-alias": {
+             "dev-master": "0.3.0-dev"
+         },
+         "typo3/cms": {
+             "cms-package-dir": "{$vendor-dir}/typo3/cms",
+             "web-dir": ".Build/Web"
+         }
+     },
+     "keywords": [
+         "TYPO3",
+         "extbase",
+         "directrequest"
+     ]
+ }
