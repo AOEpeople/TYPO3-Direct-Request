@@ -133,7 +133,7 @@ class tx_directrequest_manager implements SingletonInterface {
 		if (isset($this->extensionSettings['frontendBasePath']) && $this->extensionSettings['frontendBasePath']) {
 			$frontendBasePath = $this->extensionSettings['frontendBasePath'];
 		// If not in CLI mode the base path can be determined from $_SERVER environment:
-		} elseif (!defined('TYPO3_cliMode') || !TYPO3_cliMode) {
+		} elseif (TYPO3_REQUESTTYPE === TYPO3_REQUESTTYPE_CLI) {
 			GeneralUtility::getIndpEnv('TYPO3_SITE_PATH');
 		}
 
