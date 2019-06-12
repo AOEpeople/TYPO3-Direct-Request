@@ -20,19 +20,7 @@
         "php": "^7.0",
         "typo3/cms-core": ">=7.6.0,<=8.7.99"
     },
-    "require-dev": {
-        "typo3/cms": "^7.6",
-        "nimut/testing-framework": "2.0.*",
-        "phpunit/phpcov": "3.1.*",
-        "squizlabs/php_codesniffer": "3.3.*",
-        "sebastian/phpcpd": "3.0.*",
-        "phpmd/phpmd": "2.6.*"
-    },
-    "replace": {
-        "directrequest": "*"
-    },
     "config": {
-        "secure-http": false,
         "vendor-dir": ".Build/vendor",
         "bin-dir": ".Build/bin"
     },
