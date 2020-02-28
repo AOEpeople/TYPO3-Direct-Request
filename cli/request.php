@@ -32,7 +32,7 @@ if (stristr(PHP_OS,'win') && !stristr(PHP_OS,'darwin')) {
 	}
 } else {
 		// *nix, et al
-	if ($temp_PATH_thisScript{0} != '/') {
+	if ($temp_PATH_thisScript[0] != '/') {
 		$relativePath = TRUE;
 	}
 }
