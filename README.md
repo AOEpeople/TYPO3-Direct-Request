@@ -1,3 +1,11 @@
+# Attention
+this extension has been archived **archived**.
+
+You can use the TYPO3-Console to replace the functionallity of this extension:
+https://github.com/TYPO3-Console/TYPO3-Console
+
+`typo3cms frontend:request https://www.example.com`
+
 # TYPO3-Direct-Request
 This is a TYPO3-Extension to fake an HTTP request and perform a direct request to the frontend triggered by the backend.
 
